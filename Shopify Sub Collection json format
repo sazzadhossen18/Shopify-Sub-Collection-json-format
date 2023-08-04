@@ -1,0 +1,24 @@
+[
+{"title":"Jump Leads & Cables ","value":"1-4-inch-rca-dc-connectors","image":"https://cdn.shopify.com/s/files/1/0279/6499/7707/files/BK-AD03C24-UT_alt_abb9b06a-45b4-4bf4-8530-8e49477cc17a.jpg?v=1689790550"},
+{"title":"Battery Chargers","value":"12v-sla-battery"},{"title":"Battery Testers","value":"12v-sla-battery"}]
+
+
+{%- liquid
+    assign subcollections = collection.metafields.custom.sub_collection.value
+-%}
+
+   {%- for subcollection in subcollections -%}
+              <div class="collection-item {{ gridClass }}">
+                <div class="category">
+                  <div class="collection-image">
+                    <a href="{{ collections[subcollection.value].url }}">
+                      <img src="{{ subcollection.image | image_url:'100px' }}">
+                    </a>
+                  </div>
+                  <div class="collection-title text-center">
+                    <strong><a href="{{ collections[subcollection.value].url }}">{{ subcollection.title }}</a></strong>
+                  </div>
+                </div>
+              </div>
+       {%- endfor -%}
+
